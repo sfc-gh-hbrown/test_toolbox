@@ -1,0 +1,35 @@
+creator: DataOps.live Assist
+description: This project is focused on optimizing data processing and task management
+  in Snowflake by implementing several solutions using Streamlit notebooks. It includes
+  applications for migrating underutilized tasks to serverless options, enabling the
+  Query Acceleration Service (QAS) to improve warehouse performance by managing resource-intensive
+  queries, and replacing repetitive CTAS and INSERT OVERWRITE commands with Dynamic
+  Tables for efficient automation. Additionally, it provides functionality to convert
+  eligible tasks into Dynamic Tables, allowing for more streamlined and automated
+  data transformations, while ensuring prerequisites such as role-based access and
+  permissions are met for effective execution.
+external_url: https://github.com/Snowflake-Labs/emerging-solutions-toolbox
+icon: https://dataops-public-assets.s3.eu-west-2.amazonaws.com/snowflake_native_app.png
+name: GenAI Evaluation and Optimization
+release_status: Draft
+snowflake_feature:
+- Cortex
+- Dynamic Tables
+- Iceberg tables
+- Native Application
+- Object Tagging
+- Snowpark
+- Snowpark ML
+- Snowsight
+- SnowSQL
+- Streamlit in Snowflake
+tier: 4
+use_case:
+- Snowflake
+version: v1
+vertical_applicability:
+- Technology
+workload:
+- Applications
+- Data Apps
+- Streamlit
