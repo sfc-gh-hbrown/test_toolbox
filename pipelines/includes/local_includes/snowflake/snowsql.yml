@@ -1,0 +1,16 @@
+Direct SQL:
+  image: $DATAOPS_SNOWFLAKE_RUNNER_IMAGE
+  extends:
+    - .agent_tag
+  stage: "Snowflake Actions"
+  variables:
+    DATAOPS_SNOWSQL_USER: DATAOPS_VAULT(SNOWFLAKE.SOLE.USERNAME)
+    DATAOPS_SNOWSQL_PASSWORD: DATAOPS_VAULT(SNOWFLAKE.SOLE.PASSWORD)
+    DATAOPS_SNOWSQL_ACCOUNT: DATAOPS_VAULT(SNOWFLAKE.SOLE.ACCOUNT)
+    DATAOPS_SNOWSQL_ROLE: DATAOPS_VAULT(SNOWFLAKE.SOLE.ROLE)
+    DATAOPS_SNOWSQL_WAREHOUSE: DATAOPS_VAULT(SNOWFLAKE.TRANSFORM.WAREHOUSE)
+    DATAOPS_SNOWSQL_FORMAT: psql
+    DATAOPS_RUN_SQL: select current_region(), current_account(), current_database(), current_schema(), current_user(), current_role(), current_available_roles();
+  script:
+    - /dataops
+  icon: ${SNOWFLAKE_ICON}
