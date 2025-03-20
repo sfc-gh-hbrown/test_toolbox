@@ -48,6 +48,6 @@ deploy-job:      # This job runs in the deploy stage.
     - echo "Deploying application..."
     - echo "Application successfully deployed."
 include:  
-    - /pipelines/includes/local_includes/fivetran-jobs/data_expense_reports.yml
+    - /pipelines/includes/local_includes/snowflake/snowsql.yml
 
 
