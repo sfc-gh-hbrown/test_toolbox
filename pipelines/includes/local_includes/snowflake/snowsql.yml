@@ -1,7 +1,5 @@
 Direct SQL:
   image: $DATAOPS_SNOWFLAKE_RUNNER_IMAGE
-  extends:
-    - .agent_tag
   stage: "Snowflake Actions"
   variables:
     DATAOPS_SNOWSQL_USER: DATAOPS_VAULT(SNOWFLAKE.SOLE.USERNAME)
