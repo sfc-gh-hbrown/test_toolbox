@@ -1,6 +1,6 @@
 Direct SQL:
-  # extends:
-  #   - .agent_tag
+  extends:
+    - .agent_tag
   stage: "Step One"
   image: $DATAOPS_UTILS_RUNNER_IMAGE
   variables:
