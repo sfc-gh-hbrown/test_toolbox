@@ -10,7 +10,8 @@ Direct SQL:
     SNOWSQL_ROLE: $DATAOPS_SOLE_ROLE
     SNOWSQL_WAREHOUSE: $DATAOPS_SOLE_WAREHOUSE
     DATAOPS_SNOWSQL_FORMAT: psql
-    DATAOPS_RUN_SQL: select current_region(), current_account(), current_database(), current_schema(), current_user(), current_role(), current_available_roles();
+    DATAOPS_RUN_SQL: $CI_PROJECT_DIR/scripts/install.sql
+
   script:
     - /dataops
   icon: ${SNOWFLAKE_ICON}
