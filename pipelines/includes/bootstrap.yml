@@ -4,9 +4,9 @@
 ## Find the base_bootstrap file in the Snowflake Reference Project:
 ## https://app.dataops.live/snowflake/shared/snowflake-reference-project/-/blob/main/pipelines/includes/base_bootstrap.yml
 include:
-  # - project: snowflake/shared/snowflake-reference-project
-  #   ref: main
-  #   file: /pipelines/includes/base_bootstrap.yml
+  - project: snowflake/shared/snowflake-reference-project
+    ref: main
+    file: /pipelines/includes/base_bootstrap.yml
 
   ## This project's configuration
   - /pipelines/includes/config/variables.yml
