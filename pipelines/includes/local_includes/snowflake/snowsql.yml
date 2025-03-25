@@ -11,6 +11,6 @@ Direct SQL:
     SNOWSQL_WAREHOUSE: $DATAOPS_SOLE_WAREHOUSE
     DATAOPS_SNOWSQL_FORMAT: psql
     DATAOPS_RUN_SQL: select current_region(), current_account(), current_database(), current_schema(), current_user(), current_role(), current_available_roles();
-  script:
-    - /pipelines
+  # script:
+  #   - /pipelines
   icon: ${SNOWFLAKE_ICON}
