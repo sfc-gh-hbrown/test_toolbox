@@ -9,5 +9,5 @@ include:
     file: /pipelines/includes/base_bootstrap.yml
 
   ## This project's configuration
-  - /dataops/pipelines/includes/config/variables.yml
+  - /pipelines/includes/config/variables.yml
   - /pipelines/includes/config/stages.yml
