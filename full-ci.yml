@@ -1,4 +1,5 @@
-include:  
+include:
+    - /dataops/pipelines/includes/bootstrap.yml  
     - /pipelines/includes/local_includes/snowflake/snowsql.yml
 
 
