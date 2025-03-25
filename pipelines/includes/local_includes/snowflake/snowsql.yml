@@ -1,4 +1,5 @@
 Direct SQL:
+  stage: "Step One"
   image: $DATAOPS_SNOWFLAKE_RUNNER_IMAGE
   variables:
     DATAOPS_SNOWSQL_USER: DATAOPS_VAULT(SNOWFLAKE.SOLE.USERNAME)
@@ -9,5 +10,5 @@ Direct SQL:
     DATAOPS_SNOWSQL_FORMAT: psql
     DATAOPS_RUN_SQL: select current_region(), current_account(), current_database(), current_schema(), current_user(), current_role(), current_available_roles();
   script:
-    - /dataops
+    - /pipelines
   icon: ${SNOWFLAKE_ICON}
