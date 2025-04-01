@@ -4,10 +4,21 @@
 ## Find the base_bootstrap file in the Snowflake Reference Project:
 ## https://app.dataops.live/snowflake/shared/snowflake-reference-project/-/blob/main/pipelines/includes/base_bootstrap.yml
 include:
-  # - project: snowflake/shared/snowflake-reference-project
-  #   ref: main
-  #   file: /pipelines/includes/base_bootstrap.yml
+  ## Bootstrap in turn from the main DataOps Reference Project
+  - project: reference-template-projects/dataops-template/dataops-reference
+    ref: 5-stable
+    file: /pipelines/includes/base_bootstrap.yml
 
+  ## Snowflake shared variable definitions and overrides
+  - project: snowflake/shared/snowflake-reference-project
+    ref: main
+    file: /pipelines/includes/config/variables.yml
+
+  ## Partial of a job to set the tag used to identify the
+  ## "agent" that will run the jobs in your pipeline.
+  ## We set this here instead of the project level so that
+  ## all projects use the same tag and can be switched between
+  ## agents easily.
   - project: snowflake/shared/snowflake-reference-project
     ref: main
     file: /pipelines/includes/config/agent_tag.yml
@@ -23,6 +34,7 @@ include:
   - project: snowflake/shared/snowflake-reference-project
     ref: main
     file: /pipelines/includes/default/record_pipeline_start.yml
+
 
   ## This project's configuration
   - /pipelines/includes/config/variables.yml
