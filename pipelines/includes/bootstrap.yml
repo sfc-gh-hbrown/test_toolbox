@@ -8,6 +8,22 @@ include:
   #   ref: main
   #   file: /pipelines/includes/base_bootstrap.yml
 
+  - project: snowflake/shared/snowflake-reference-project
+    ref: main
+    file: /pipelines/includes/config/agent_tag.yml
+
+  ## Job to initialise the pipeline (applies to all Snowflake project
+  ## pipelines so that's why it's here in the bootstrap!)
+  - project: reference-template-projects/dataops-template/dataops-reference
+    ref: 5-stable
+    file: /pipelines/includes/default/initialise_pipeline.yml
+
+  ## Job to record the pipeline start (applies to all Snowflake
+  ## project pipelines)
+  - project: snowflake/shared/snowflake-reference-project
+    ref: main
+    file: /pipelines/includes/default/record_pipeline_start.yml
+
   ## This project's configuration
   - /pipelines/includes/config/variables.yml
   - /pipelines/includes/config/stages.yml
