@@ -1,0 +1,7 @@
+## Agent tag and the tag key is used to identify the "agent"
+## that will run the jobs in your pipeline.
+
+## This is setup and managed by DataOps.live
+.agent_tag:
+  tags:
+    - prod-ssc-pipeline-runner
