@@ -14,4 +14,6 @@ Direct SQL:
 
   script:
     - /dataops
+    - ls -l $CI_PROJECT_DIR/scripts
+    - find $CI_PROJECT_DIR/scripts -type f | grep -v template | sort -V | while read -r file; do  echo $file && cat $file | dataops-snowsql -u $SNOWSQL_USERNAME -p "$SNOWSQL_PWD" -a $SNOWSQL_ACCOUNT -r $SNOWSQL_ROLE -w $DATAOPS_SOLE_WAREHOUSE -d $DATAOPS_DATABASE "$DATAOPS_RUN_SQL_SCRIPT" ; done
   icon: ${SNOWFLAKE_ICON}
