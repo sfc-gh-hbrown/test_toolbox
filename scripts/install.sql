@@ -7,4 +7,4 @@ DIRECTORY = (ENABLE = TRUE);
 GRANT OWNERSHIP ON STAGE INSTALL_TEST.TEST.QUICKSTART 
 TO ROLE public COPY CURRENT GRANTS;
 
-PUT file:///snowflake/solutions/snowflake-labs-emerging-solutions-toolbox-63f264/solution/* @INSTALL_TEST.TEST.QUICKSTART/ auto_compress = false overwrite = true;
+PUT file:///app.dataops.live/snowflake/solutions/snowflake-labs-emerging-solutions-toolbox-63f264/solution/* @INSTALL_TEST.TEST.QUICKSTART/ auto_compress = false overwrite = true;
