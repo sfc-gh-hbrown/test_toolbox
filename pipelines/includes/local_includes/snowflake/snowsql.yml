@@ -1,4 +1,4 @@
-Run SQL using key-pair authentication:
+Direct SQL:
   extends:
     - .agent_tag
   stage: "Step One"
