@@ -13,5 +13,5 @@ Direct SQL:
     DATAOPS_RUN_SQL: $CI_PROJECT_DIR/scripts/install.sql
 
   script:
-    - /scripts
+    - /scripts/install.sql
   icon: ${SNOWFLAKE_ICON}
