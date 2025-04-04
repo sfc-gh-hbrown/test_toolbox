@@ -3,6 +3,7 @@ Direct SQL:
     - .agent_tag
   stage: "Step One"
   image: $DATAOPS_UTILS_RUNNER_IMAGE
+  icon: ${SNOWFLAKE_ICON}
   variables:
     SNOWSQL_USERNAME: $DATAOPS_SOLE_USERNAME
     SNOWSQL_ACCOUNT: $DATAOPS_SOLE_ACCOUNT
@@ -13,5 +14,5 @@ Direct SQL:
     DATAOPS_RUN_SQL: $CI_PROJECT_DIR/scripts/install.sql
 
   script:
-    - /scripts/install.sql
-  icon: ${SNOWFLAKE_ICON}
+    - /dataops
+
