@@ -10,10 +10,10 @@ Direct SQL:
     SNOWSQL_ROLE: $DATAOPS_SOLE_ROLE
     SNOWSQL_WAREHOUSE: $DATAOPS_SOLE_WAREHOUSE
     DATAOPS_SNOWFLAKE_KEY_PAIR: $DATAOPS_SOLE_PKEY
-    DATAOPS_RUN_SQL_SCRIPT: $CI_PROJECT_DIR/dataops/scripts/install.sql
+    DATAOPS_RUN_SQL_SCRIPT: $CI_PROJECT_DIR/dataops/snowflake/scripts/install.sql
     DATAOPS_SOURCE_FILE: $CI_PROJECT_DIR/env.sh
     SNOWSQL_PWD: $DATAOPS_SOLE_PASS
   script:
     - /dataops
-    - ls -l $CI_PROJECT_DIR/scripts
-    - find $CI_PROJECT_DIR/scripts -type f | grep -v install | sort -V | while read -r file; do  echo $file && cat $file | dataops-snowsql -u $SNOWSQL_USERNAME -p "$SNOWSQL_PWD" -a $SNOWSQL_ACCOUNT -r $SNOWSQL_ROLE -w $DATAOPS_SOLE_WAREHOUSE -d $DATAOPS_DATABASE "$DATAOPS_RUN_SQL_SCRIPT" ; done
+    - ls -l $CI_PROJECT_DIR/dataops/snowflake/scripts/
+    - find $CI_PROJECT_DIR/dataops/snowflake/scripts/ -type f | grep -v install | sort -V | while read -r file; do  echo $file && cat $file | dataops-snowsql -u $SNOWSQL_USERNAME -p "$SNOWSQL_PWD" -a $SNOWSQL_ACCOUNT -r $SNOWSQL_ROLE -w $DATAOPS_SOLE_WAREHOUSE -d $DATAOPS_DATABASE "$DATAOPS_RUN_SQL_SCRIPT" ; done
