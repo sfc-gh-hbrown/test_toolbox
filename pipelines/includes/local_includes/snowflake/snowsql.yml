@@ -9,4 +9,4 @@ Post Pipeline SQL:
     - .run_sql_in_dir
   stage: "Post Pipeline"
   variables:
-    DATAOPS_SQL_DIR: $CI_PROJECT_DIR/dataops/snowflake/post_pipeline_sql
+    DATAOPS_SQL_DIR: $CI_PROJECT_DIR/scripts
