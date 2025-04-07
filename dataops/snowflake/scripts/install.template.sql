@@ -23,7 +23,7 @@ PUT file:///{{ env.CI_PROJECT_DIR }}/scripts/install.ipynb @INSTALL_TEST.TEST.QU
 use role ACCOUNTADMIN;
 use DATABASE {{ env.DATAOPS_DATABASE }};
 use schema TEST;
-CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.TEST.Generate_Quickstart
+CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_PREFIX }}_DB.TEST.Generate_Quickstart
 FROM '@{{ env.DATAOPS_DATABASE }}.TEST.QUICKSTART/'
 MAIN_FILE = 'install.ipynb'
 QUERY_WAREHOUSE = 'COMPUTE_WH';
