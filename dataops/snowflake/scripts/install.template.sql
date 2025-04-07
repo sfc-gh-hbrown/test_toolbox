@@ -24,11 +24,11 @@ PUT file:////builds/snowflake/solutions/snowflake-labs-emerging-solutions-toolbo
 
 use role ACCOUNTADMIN;
 use DATABASE {{ env.DATAOPS_DATABASE }};
-use schema ANALYTICS;
-CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.ANALYTICS.Generate_Quickstart
-FROM '@{{ env.DATAOPS_DATABASE }}.ANALYTICS.QUICKSTART/docs'
-MAIN_FILE = 'Generate_Quickstart.ipynb'
-QUERY_WAREHOUSE = '{{ env.DATAOPS_CATALOG_SOLUTION_PREFIX }}_BUILD_WH';
+use schema TEST;
+CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.TEST.Generate_Quickstart
+FROM '@{{ env.DATAOPS_DATABASE }}.TEST.QUICKSTART/'
+MAIN_FILE = 'install.ipynb'
+QUERY_WAREHOUSE = 'COMPUTE_WH';
 
 ALTER NOTEBOOK {{ env.DATAOPS_DATABASE }}.ANALYTICS.Generate_Quickstart ADD LIVE VERSION FROM LAST;
 
