@@ -19,9 +19,7 @@ VALUES
 ('INSTALL_STAGE','QUICKSTART');
 
 
-PUT file:////builds/snowflake/solutions/snowflake-labs-emerging-solutions-toolbox-63f264/scripts/install.ipynb @INSTALL_TEST.TEST.QUICKSTART/ auto_compress = false overwrite = true;
--- PUT file:///{{ env.CI_PROJECT_DIR }}/solution/* @INSTALL_TEST.TEST.QUICKSTART/ auto_compress = false overwrite = true;
-
+PUT file:///{{ env.CI_PROJECT_DIR }}/scripts/install.ipynb @INSTALL_TEST.TEST.QUICKSTART/ auto_compress = false overwrite = true;
 use role ACCOUNTADMIN;
 use DATABASE {{ env.DATAOPS_DATABASE }};
 use schema TEST;
