@@ -7,4 +7,18 @@ DIRECTORY = (ENABLE = TRUE);
 GRANT OWNERSHIP ON STAGE INSTALL_TEST.TEST.QUICKSTART 
 TO ROLE public COPY CURRENT GRANTS;
 
-PUT file:///app.dataops.live/snowflake/solutions/snowflake-labs-emerging-solutions-toolbox-63f264/solution/* @INSTALL_TEST.TEST.QUICKSTART/ auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/quickstart/Generate_Quickstart.ipynb @INSTALL_TEST.TEST.QUICKSTART/ auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/* @INSTALL_TEST.TEST.QUICKSTART/ auto_compress = false overwrite = true;
+
+USE WAREHOUSE {{ env.DATAOPS_CATALOG_SOLUTION_PREFIX }}_BUILD_WH;
+use role ACCOUNTADMIN;
+use DATABASE {{ env.DATAOPS_DATABASE }};
+use schema ANALYTICS;
+CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.ANALYTICS.Generate_Quickstart
+FROM '@{{ env.DATAOPS_DATABASE }}.ANALYTICS.QUICKSTART/docs'
+MAIN_FILE = 'Generate_Quickstart.ipynb'
+QUERY_WAREHOUSE = '{{ env.DATAOPS_CATALOG_SOLUTION_PREFIX }}_BUILD_WH';
+
+ALTER NOTEBOOK {{ env.DATAOPS_DATABASE }}.ANALYTICS.Generate_Quickstart ADD LIVE VERSION FROM LAST;
+
+EXECUTE NOTEBOOK {{ env.DATAOPS_DATABASE }}.ANALYTICS.Generate_Quickstart();
