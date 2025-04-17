@@ -4,6 +4,8 @@
   stage: "Step One"
   image: $DATAOPS_PYTHON3_RUNNER_IMAGE
   variables:
+    GITLAB_TOKEN: $GITLAB_TOKEN
+    SPECIFIED_PATH: ${CI_PROJECT_DIR}/scripts
     DATAOPS_RUN_PYTHON_SCRIPT: $CI_PROJECT_DIR/scripts/pickler.py
   script:
     - /dataops
