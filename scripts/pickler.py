@@ -21,12 +21,12 @@ def main():
     file_dir = file_dir+'/solution'
 
     for file in os.listdir(file_dir):
-        with open(file_dir + "/" + file, "rb") as current_file:
-            files_dict[file] = current_file.read()
+        print(file)
+        # with open(file_dir + "/" + file, "rb") as current_file:
+        #     files_dict[file] = current_file.read()
 
     obj = {
-    "files": files_dict,
-    "images": images_base64_dict
+    "files": files_dict
     }
 
     # Encode object
@@ -36,7 +36,7 @@ def main():
     print(encoded_obj)
 
     with open(file_dir+"/pickle.txt", "w") as f:
-      f.write(encoded_obj)
+      f.write("hello there")
 
 
 if __name__ == '__main__':
