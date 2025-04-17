@@ -21,7 +21,7 @@ def main():
 
     gl = gitlab.Gitlab('https://app.dataops.live/snowflake/solutions/snowflake-labs-emerging-solutions-toolbox-63f264', private_token=os.getenv('GITLAB_TOKEN'))
 
-    project = gl.projects.get(project_id)
+    project = gl.projects.get('21158')
     encoded_content = base64.b64encode("Hello World".encode('utf-8')).decode('utf-8')
     data = {
         'file_path': file_dir,
