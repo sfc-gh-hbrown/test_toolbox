@@ -1,6 +1,6 @@
 ## Update this file to reflect your solution.
 ## Rename it to listing.yml when you are ready to submit your solution to the SSC.
-name: "TEST TOOLBOX 2" # Title that appears on the SSC listing
+name: "TEST TOOLBOX 5" # Title that appears on the SSC listing
 version: "v2" # A marketing version number to help your consumers understand the iterations of this solution
 description: "Dive into AI/ML centric Snowflake topics, all hosted within Snowflake Notebooks. Topics include XGBoost with GPUs, Partitioned Models, and Feature Store deep dive. Click Learn More to view the complete list of available demos." # Shows up on the listing results page
 creator: "Product" # Your team name, E.g. "frostbyte" or "PolarIS" or "community"
