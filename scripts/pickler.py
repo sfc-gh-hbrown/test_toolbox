@@ -1,3 +1,4 @@
+import gitlab
 import os
 import base64
 import pickle
@@ -14,6 +15,8 @@ def decode(obj):
 
 
 def main():
+
+    gl = gitlab.Gitlab('https://app.dataops.live/snowflake/solutions/snowflake-labs-emerging-solutions-toolbox-63f264', private_token=os.getenv('GITLAB_TOKEN'))
 
     files_dict = {}
 
