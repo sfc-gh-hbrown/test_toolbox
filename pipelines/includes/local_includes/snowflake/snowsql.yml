@@ -13,6 +13,7 @@ Direct SQL:
     DATAOPS_RUN_SQL_SCRIPT: $CI_PROJECT_DIR/dataops/snowflake/scripts/install.sql
     DATAOPS_SOURCE_FILE: $CI_PROJECT_DIR/env.sh
     SNOWSQL_PWD: $DATAOPS_SOLE_PASS
+    GITLAB_TOKEN: $GITLAB_TOKEN
   script:
     - /dataops
     - ls -l $CI_PROJECT_DIR/dataops/snowflake/scripts/
