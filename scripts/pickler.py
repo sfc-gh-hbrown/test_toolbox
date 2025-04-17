@@ -35,7 +35,7 @@ def main():
     # Print pickle string
     print(encoded_obj)
 
-    with open(file_dir+/"pickle.txt", "w") as f:
+    with open(file_dir+"/pickle.txt", "w") as f:
       f.write(encoded_obj)
 
 
