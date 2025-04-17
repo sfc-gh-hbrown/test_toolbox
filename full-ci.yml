@@ -1,5 +1,7 @@
 include:
     - /pipelines/includes/bootstrap.yml  
     - /pipelines/includes/local_includes/snowflake/snowsql.yml
+    - /pipelines/includes/local_includes/python3_jobs/python_runner.yml
+
 
 
