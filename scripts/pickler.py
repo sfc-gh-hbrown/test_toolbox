@@ -13,36 +13,41 @@ def decode(obj):
     pickled = codecs.decode(obj.encode(), 'base64')
     return pickle.loads(pickled)
 
-def read_file(path,dict):
-
+def read_files(file_dir, name, files_dict):
+    
     for file in os.listdir(file_dir):
-        print(file)
-        with open(file_dir + "/" + file, "rb") as current_file:
-            files_dict[file] = current_file.read()
-
+        full_file_path = file_dir + "/" + file
+        if os.path.isdir(full_file_path):
+            read_files(full_file_path, f'{name}{file}/', files_dict)
+        else:
+            with open(file_dir + "/" + file, "rb") as current_file:
+                files_dict[name+file] = current_file.read()
+    return files_dict
+    
 def main():
 
     file_dir = os.getenv('CI_PROJECT_DIR')
     script_dir = file_dir+"/scripts"
-    file_dir = file_dir+'/solution/'
+    file_dir = file_dir+'/solution'
 
     files_dict = {}
 
 
 
-    for file in os.listdir(file_dir):
-        full_file_path = file_dir + "/" + file
-        print(full_file_path)
-        if os.path.isdir(full_file_path):
-            pass
-        else:
-            with open(file_dir + "/" + file, "rb") as current_file:
-                files_dict[file] = current_file.read()
+    # for file in os.listdir(file_dir):
+    #     full_file_path = file_dir + "/" + file
+    #     if os.path.isdir(full_file_path):
+    #         pass
+    #     else:
+    #         with open(file_dir + "/" + file, "rb") as current_file:
+    #             files_dict[file] = current_file.read()
+
+    files_dict = read_files(file_dir, '', files_dict)
 
     obj = {
         "files": files_dict
     }
-    print(obj)
+    print(obj["files"].keys())
     # Encode object
     encoded_obj = encode(obj)
 
