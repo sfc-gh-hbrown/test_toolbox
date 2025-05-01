@@ -15,16 +15,16 @@
     - echo $CI_COMMIT_BRANCH
     - git config --global user.email "dol@example.com"
     - git config --global user.name "dol pipeline"
-    - git clone $CENTRAL_REPO_URL /centralrepo
-    - cd /centralrepo
-    - git checkout -b $SOLUTION_BRANCH
-    - git remote add target $CENTRAL_REPO_URL
-    - cp -r $RUNNER_SOLUTION_DIR $TARGET_SOLUTION_DIR
+    - git clone $GIT_REPO_URL /thisrepo
+    - cd /thisrepo
+    - git checkout $CI_COMMIT_BRANCH
+    - git remote add target $GIT_REPO_URL
+    - cp /builds/dataops-demo-project/mlbdemo/dol-python/python_snowflake/customer.csv python_snowflake/
     - git add -A
     - >
        if ! git diff-index --quiet HEAD; then
-        git commit -m "Commit solution to central repo [skip ci]"
-        git push target $SOLUTION_BRANCH
+        git commit -m "Commit auto-generated code [skip ci]"
+        git push target $CI_COMMIT_BRANCH
        fi
     - git remote remove target
   icon: ${PYTHON-ICON}
