@@ -3,6 +3,7 @@ import os
 import base64
 import pickle
 import codecs
+import nbformat
 
 def encode(obj):
     pickled = pickle.dumps(obj)
@@ -12,48 +13,53 @@ def decode(obj):
     pickled = codecs.decode(obj.encode(), 'base64')
     return pickle.loads(pickled)
 
+def read_file(path,dict):
 
+    for file in os.listdir(file_dir):
+        print(file)
+        with open(file_dir + "/" + file, "rb") as current_file:
+            files_dict[file] = current_file.read()
 
 def main():
 
     file_dir = os.getenv('CI_PROJECT_DIR')
-    file_dir = file_dir+'/solution'
-
-    # gl = gitlab.Gitlab('https://app.dataops.live/snowflake/solutions/snowflake-labs-emerging-solutions-toolbox-63f264', private_token=os.getenv('GITLAB_TOKEN'))
-
-    # project = gl.projects.get('21158')
-    # encoded_content = base64.b64encode("Hello World".encode('utf-8')).decode('utf-8')
-    # data = {
-    #     'file_path': file_dir,
-    #     'branch': "main",
-    #     'content': encoded_content,
-    #     'encoding': 'base64',
-    #     'commit_message': "hello"
-    # }
-
-    # project.files.create(data)
+    script_dir = file_dir+"/scripts"
+    file_dir = file_dir+'/solution/'
 
     files_dict = {}
 
 
 
     for file in os.listdir(file_dir):
-        print(file)
-        # with open(file_dir + "/" + file, "rb") as current_file:
-        #     files_dict[file] = current_file.read()
+        full_file_path = file_dir + "/" + file
+        print(full_file_path)
+        if os.path.isdir(full_file_path):
+            pass
+        else:
+            with open(file_dir + "/" + file, "rb") as current_file:
+                files_dict[file] = current_file.read()
 
     obj = {
-    "files": files_dict
+        "files": files_dict
     }
-
+    print(obj)
     # Encode object
     encoded_obj = encode(obj)
 
     # Print pickle string
-    print(encoded_obj)
+    # print(encoded_obj)
 
-    with open(file_dir+"/pickle.txt", "w") as f:
-      f.write("hello there")
+    with open(script_dir+"/install_test.ipynb", "r") as notebook:
+	    nb = nbformat.read(notebook, as_version=4)
+
+    for cell in nb.cells:
+        if cell["metadata"]["name"] == "encoded_object":
+            # cell.source = f"\"\"\"{encoded_obj}\"\"\""
+            cell.source = f"\"\"\"Hello_World\"\"\""
+
+
+    with open(script_dir+"/my_new_nb.ipynb", "w") as f:
+        nbformat.write(nb, f)
 
 
 if __name__ == '__main__':
