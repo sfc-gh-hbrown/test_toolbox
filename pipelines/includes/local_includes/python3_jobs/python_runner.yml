@@ -7,6 +7,24 @@
     GITLAB_TOKEN: $GITLAB_TOKEN
     SPECIFIED_PATH: ${CI_PROJECT_DIR}/scripts
     DATAOPS_RUN_PYTHON_SCRIPT: $CI_PROJECT_DIR/scripts/pickler.py
+    RUNNER_SOLUTION_DIR: /builds/dataops-demo-project/mlbdemo/z-solution/snowflake_code/
+    TARGET_SOLUTION_DIR: solution_dir_3/
+    SOLUTION_BRANCH: new-solution-${CI_COMMIT_SHORT_SHA}
   script:
     - /dataops
+    - echo $CI_COMMIT_BRANCH
+    - git config --global user.email "dol@example.com"
+    - git config --global user.name "dol pipeline"
+    - git clone $CENTRAL_REPO_URL /centralrepo
+    - cd /centralrepo
+    - git checkout -b $SOLUTION_BRANCH
+    - git remote add target $CENTRAL_REPO_URL
+    - cp -r $RUNNER_SOLUTION_DIR $TARGET_SOLUTION_DIR
+    - git add -A
+    - >
+       if ! git diff-index --quiet HEAD; then
+        git commit -m "Commit solution to central repo [skip ci]"
+        git push target $SOLUTION_BRANCH
+       fi
+    - git remote remove target
   icon: ${PYTHON-ICON}
