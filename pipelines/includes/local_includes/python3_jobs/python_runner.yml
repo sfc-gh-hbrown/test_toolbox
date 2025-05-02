@@ -19,7 +19,7 @@
     - cd /thisrepo
     - git checkout $CI_COMMIT_BRANCH
     - git remote add target $GIT_REPO_URL
-    - cp /builds/snowflake/solutions/snowflake-labs-emerging-solutions-toolbox-63f264/scripts/my_new_nb.ipynb python_snowflake/
+    - cp /builds/snowflake/solutions/snowflake-labs-emerging-solutions-toolbox-63f264/scripts/my_new_nb.ipynb solution/install.ipynb
     - git add -A
     - >
        if ! git diff-index --quiet HEAD; then
