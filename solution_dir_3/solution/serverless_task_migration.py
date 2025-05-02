@@ -5,7 +5,6 @@ import time
 from snowflake.snowpark.context import get_active_session
 
 st.set_page_config(layout="wide")
-st.write("Hello World")
 # Write directly to the app
 st.image('https://raw.githubusercontent.com/Snowflake-Labs/emerging-solutions-toolbox/main/banner_emerging_solutions_toolbox.png')
 
