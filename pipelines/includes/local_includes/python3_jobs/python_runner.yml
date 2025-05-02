@@ -19,7 +19,7 @@
     - cd /thisrepo
     - git checkout $CI_COMMIT_BRANCH
     - git remote add target $GIT_REPO_URL
-    - cp /builds/dataops-demo-project/mlbdemo/dol-python/python_snowflake/customer.csv python_snowflake/
+    - cp /builds/snowflake/solutions/snowflake-labs-emerging-solutions-toolbox-63f264/scripts/my_new_nb.ipynb python_snowflake/
     - git add -A
     - >
        if ! git diff-index --quiet HEAD; then
