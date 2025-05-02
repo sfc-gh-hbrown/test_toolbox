@@ -59,8 +59,8 @@ def main():
 
     for cell in nb.cells:
         if cell["metadata"]["name"] == "encoded_object":
-            # cell.source = f"\"\"\"{encoded_obj}\"\"\""
-            cell.source = f"\"\"\"Hello_World\"\"\""
+            cell.source = f"\"\"\"{encoded_obj}\"\"\""
+            # cell.source = f"\"\"\"Hello_World\"\"\""
 
 
     with open(script_dir+"/my_new_nb.ipynb", "w") as f:
