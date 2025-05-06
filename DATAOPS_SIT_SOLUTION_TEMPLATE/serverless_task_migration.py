@@ -8,6 +8,8 @@ st.set_page_config(layout="wide")
 # Write directly to the app
 st.image('https://raw.githubusercontent.com/Snowflake-Labs/emerging-solutions-toolbox/main/banner_emerging_solutions_toolbox.png')
 
+st.write('hello world')
+
 st.title("Serverless Tasks Migration")
 # Get the current credentials
 session = get_active_session()
